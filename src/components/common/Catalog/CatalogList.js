@@ -1,22 +1,21 @@
-import ProjectItem from "./ProjectItem"
+import CatalogProjectItem from "./CatalogProjectItem"
 
 
-
-const CatalogList = ({projects}) => {
+const CatalogList = ({ projects }) => {
+    console.log(projects.length)
     return (
-        <div className="position-absolute top-50 start-50 translate-middle">
-            
+        <div>
             <h2>All Projects</h2>
+            <div className="grid">
             {projects.length > 0
-                ? projects.map(x=> 
-                    <div id="card-div" className="row">
-                        <ProjectItem key={x._id} project={x} />
-                        
-                    </div>)
-                : <h3>No projects yet</h3>
-            }
+                ? projects.map(x => (
 
-        </div>
+                        <CatalogProjectItem key={x._id} project={x} />
+                    
+                ))
+                : <h3>No projects yet</h3>}
+                </div>
+        </div >
     )
 }
 

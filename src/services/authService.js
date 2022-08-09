@@ -17,6 +17,7 @@ export const logout = async (accessToken) => {
                 'X-Authorization': accessToken
             }
         });
+        
         return response
     } catch (error) {
         console.log(error)
