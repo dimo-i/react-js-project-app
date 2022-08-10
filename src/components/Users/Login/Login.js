@@ -7,7 +7,7 @@ import * as authService from "../../../services/authService"
 import { AuthContext } from '../../../contexts/AuthContext';
 
 const Login = () => {
-    const {userLoginHandler} = useContext(AuthContext)
+    const { userLoginHandler } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const onSubmit = (e) => {
@@ -26,7 +26,7 @@ const Login = () => {
             })
             .catch(() => {
                 navigate('/404');
-                
+
             })
     }
 
@@ -36,19 +36,20 @@ const Login = () => {
                 <h1 className="text-center">Login to Your Profile</h1>
                 <div className="col-lg-3"></div>
                 <div className="col-lg-6">
-                    <form id="login" onSubmit={onSubmit}>
-                        <div>
-                            <label htmlFor="email">Email:</label>
-                            <input id="email" type="text" name="email" />
+                    <form id="login" className="form-floating" onSubmit={onSubmit}>
+
+                        <div className="form-floating mb-3">
+                            <input id="email" name="email" type="text" className="form-control" placeholder="Email" />
+                            <label htmlFor="email">Email</label>
                         </div>
-                        <div>
-                            <label htmlFor="login-pass">Password:</label>
-                            <input id="login-password" type="password" name="password" />
+
+                        <div className="form-floating mb-3">
+                            <input id="register-password" name="password" type="password" className="form-control" placeholder="Password" />
+                            <label htmlFor="pass">Password</label>
                         </div>
-                        <div>
-                            {/* <button className="btn btn-primary mt-3" type="submit">Login</button> */}
-                            <input type="submit" value="Login" />
-                        </div>
+
+
+                        <input className="btn btn-primary mb-3" type="submit" value="Login" />
                     </form>
                     <p>
                         <span>If you don't have a user, click <Link to="/register">here</Link></span>

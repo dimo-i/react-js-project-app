@@ -44,8 +44,12 @@ function App() {
             ...state,
             projectData,
         ]);
-        navigate('/catalog')
+        navigate('/projects')
     };
+
+    const editProject = (projectId, projectData) => {
+        setProjects(state => state.map(x => x._id === projectId ? projectData : x))
+    }
 
 
 
@@ -62,10 +66,10 @@ function App() {
         <AuthContext.Provider value={{ user: auth, userLoginHandler, userLogoutHandler }}>
             <div>
                 <Header />
-                <ProjectContext.Provider value={{}}>
+                <ProjectContext.Provider value={{projects, addProject, editProject}}>
                 <main className="main">
                         <Routes>
-                            <Route path="/" element={<Home projects={projects, addProject} />} />
+                            <Route path="/" element={<Home projects={projects} />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={
                                 <Suspense fallback={<span>Loading....</span>}>

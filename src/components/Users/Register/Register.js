@@ -41,80 +41,54 @@ const Register = () => {
                 <div className="row">
                     <div className="col-lg-3"></div>
                     <div className="input-group flex-wrap: wrap">
-                        <form id="register" onSubmit={onSubmit}>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="firstName">First Name</label>
-                                    <div className="input-wrapper">
-                                        <input id="firstName" name="firstName" type="text" />
-                                    </div>
-                                </div>
-                                <p className="form-error">
-                                    First name should be at least 3 characters long!
-                                </p>
 
 
-                            </div>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="lastName">Last name</label>
-                                    <div className="input-wrapper">
-                                        <input id="lastName" name="lastName" type="text" />
-                                    </div>
-                                </div>
-                                <p className="form-error">
-                                    Last name should be at least 3 characters long!
-                                </p>
+                        <form id="register" className="form-floating" onSubmit={onSubmit}>
 
+                            <div className="form-floating mb-3">
+                                <input id="firstName" name="firstName" type="text" className="form-control" placeholder="First Name" />
+                                <label htmlFor="firstName">First Name</label>
+                            </div>
+                            <p className="form-error">
+                                First name should be at least 3 characters long!
+                            </p>
+                            <div className="form-floating mb-3">
+                                <input id="lastName" name="lastName" type="text" className="form-control" placeholder="Last Name" />
+                                <label htmlFor="lastName">Last Name</label>
+                            </div>
+                            <p className="form-error">
+                                Last name should be at least 3 characters long!
+                            </p>
+                            <div className="form-floating mb-3">
+                                <input id="email" name="email" type="text" className="form-control" placeholder="Email" />
+                                <label htmlFor="email">Email</label>
+                            </div>
+                            <p className="form-error">
+                                Email should be at least 3 characters long!
+                            </p>
+                            <div className="form-floating mb-3">
+                                <input id="profilePicture" name="imageUrl" type="text" className="form-control" placeholder="Profile Picture" />
+                                <label htmlFor="imageUrl">Profile Picture</label>
+                            </div>
+                            <p className="form-error">
+                                Image Url should be at least 3 characters long!
+                            </p>
+                            <div className="form-floating mb-3">
+                                <input id="register-password" name="password" type="password" className="form-control" placeholder="Password" />
+                                <label htmlFor="pass">Password</label>
+                            </div>
+                            <p className="form-error">
+                                Password should be at least 3 characters long!
+                            </p>
+                            <div className="form-floating mb-3">
+                                <input id="confirm-password" name="confirm-password" type="password" className="form-control" placeholder="Confirm Password" />
+                                <label htmlFor="con-pass">Confirm Password</label>
+                            </div>
+                            <p className="form-error">
+                                Passwords should match
+                            </p>
 
-                            </div>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="email">Email</label>
-                                    <div className="input-wrapper">
-                                        <input id="email" name="email" type="text" />
-                                    </div>
-                                </div>
-                                <p className="form-error">
-                                    Email should be at least 3 characters long!
-                                </p>
-                            </div>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="imageUrl">Image Url</label>
-                                    <div className="input-wrapper">
-                                        <input id="profilePicture" name="imageUrl" type="text" />
-                                    </div>
-                                </div>
-                                <p className="form-error">
-                                    Image Url should be at least 3 characters long!
-                                </p>
-                            </div>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="pass">Password: </label>
-                                    <div className="input-wrapper">
-                                        <input id="register-password" name="password" type="password" />
-                                    </div>
-                                </div>
-                                <p className="form-error">
-                                    Password should be at least 3 characters long!
-                                </p>
-                            </div>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="con-pass">Confirm Password: </label>
-                                    <div className="input-wrapper">
-                                        <input id="confirm-password" name="confirm-password" type="password" />
-                                    </div>
-                                </div>
-                                <p className="form-error">
-                                    Passwords should match
-                                </p>
-                            </div>
-
-
-                            <input className="btn btn-primary mt-2" type="submit" value="Register"/>
+                            <input className="btn btn-primary mb-3" type="submit" value="Register" />
                         </form>
                     </div>
                     <p>

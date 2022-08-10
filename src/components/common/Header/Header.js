@@ -13,7 +13,7 @@ const Header = () => {
         <header >
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 
-                <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <div className="navbar-collapse d-flex justify-content-start">
                     <ul className="navbar-nav mr-auto">
 
                         <li className="nav-item">
@@ -24,10 +24,9 @@ const Header = () => {
                             <Link className="nav-link" to="/dashboard">Dashboard</Link>
                         </li>
                     </ul>
-                </div>
-
-                <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                    <ul className="navbar-nav ml-auto">
+                    </div>
+                    <div className='navbar-collapse d-flex justify-content-end'>
+                    <ul className="navbar-nav p-2">
                         <li className="nav-item">
                             <Link className="nav-link" to="/projects">All Projects</Link>
                         </li>

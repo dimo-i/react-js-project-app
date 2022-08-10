@@ -5,7 +5,7 @@ import { ProjectContext } from '../../../contexts/ProjectContext'
 
 const CreateProject = () => {
 
-    const {addProject} = useContext(ProjectContext)
+    const { addProject } = useContext(ProjectContext)
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -20,53 +20,28 @@ const CreateProject = () => {
     }
 
     return (
+        <div className="position-absolute top-50 start-50 translate-middle">
+            <form id="create" className="form-floating" onSubmit={onSubmit}>
 
-        <div className="row">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-6">
-                <form id="create" onSubmit={onSubmit}>
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label htmlFor="name">Project Name</label>
-                            <div className="input-wrapper">
-                                <input id="name" name="name" type="text" />
-                            </div>
-                        </div>
+                <div className="form-floating mb-3">
+                    <input id="name" name="name" type="text" className="form-control" placeholder="Project Name" />
+                    <label htmlFor="floatingInput">Project Name</label>
+                </div>
+                <div className="form-floating mb-3">
+                    <input id="category" name="category" type="text" className="form-control" placeholder="Project Category" />
+                    <label htmlFor="floatingCategory">Project Category</label>
+                </div>
+                <div className="form-floating mb-3">
+                    <input id="projectPicture" name="imageUrl" type="text" className="form-control" placeholder="Project Image" />
+                    <label htmlFor="floatingInput">Project Image</label>
+                </div>
+                <div className="form-floating mb-3">
+                    <textarea id="description" name="description" defaultValue={""} className="form-control" placeholder="Description" />
+                    <label htmlFor="floatingPassword">Description</label>
+                </div>
 
-                    </div>
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label htmlFor="category">Project Category</label>
-                            <div className="input-wrapper">
-                                <input id="category" name="category" type="text" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label htmlFor="imageUrl">Project Image</label>
-                            <div className="input-wrapper">
-                                <input id="projectPicture" name="imageUrl" type="text" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label htmlFor="pass">Description</label>
-                            <div className="input-wrapper">
-                                <textarea id="description" name="description" defaultValue={""} />
-                            </div>
-                        </div>
-
-                    </div>
-
-
-
-                    <input className="btn btn-primary mt-2" type="submit" value="Create Project" />
-                </form>
-            </div>
-            <div className="col-lg-3"></div>
+                <input className="btn btn-primary mb-3" type="submit" value="Create Project" />
+            </form>
         </div>
 
     )
