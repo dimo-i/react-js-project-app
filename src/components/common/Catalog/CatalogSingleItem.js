@@ -1,8 +1,12 @@
 
 import { Link } from 'react-router-dom';
+import { useContext } from 'react'
+import { AuthContext } from '../../../contexts/AuthContext';
 
 
-const CatalogProjectItem = ({ project }) => {
+const CatalogSingleItem = ({ project }) => {
+    const { user } = useContext(AuthContext)
+
     
     return (
 
@@ -11,10 +15,13 @@ const CatalogProjectItem = ({ project }) => {
                     <div className="card-body">
                         <h5 className="card-title">{project.title}</h5>
                         <p className="card-text">{project.category}</p>
+                        {user.accessToken ? 
                         <Link style={{marginLeft: '150px'}} to={`/projects/${project._id}`} className="btn btn-primary">Details</Link>
+                        : <></>
+                    }
                     </div>
                 </div>
     );
 }
 
-export default CatalogProjectItem;
+export default CatalogSingleItem;

@@ -18,6 +18,11 @@ const Login = () => {
             password,
         } = Object.fromEntries(new FormData(e.target));
 
+        if (email == '' || password == ''){
+            window.confirm("Please fill all fields!")
+            return
+        }
+
 
         authService.login(email, password)
             .then(authData => {

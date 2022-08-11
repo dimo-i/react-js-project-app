@@ -1,4 +1,4 @@
-import CatalogProjectItem from "./CatalogProjectItem"
+import CatalogSingleItem from "./CatalogSingleItem"
 
 
 const CatalogList = ({ projects }) => {
@@ -11,7 +11,7 @@ const CatalogList = ({ projects }) => {
                 {projects.length > 0
                     ? projects.map(x => 
                         <div className="col" key={x._id}>
-                            <CatalogProjectItem key={x._id} project={x} />
+                            <CatalogSingleItem key={x._id} project={x} />
                             </div>
                     )
                     : <h3>No projects yet</h3>}

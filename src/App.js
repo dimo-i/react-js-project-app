@@ -1,10 +1,11 @@
 import { Routes, Route, useNavigate, } from 'react-router-dom'
 import { useState, useEffect, Suspense } from 'react'
 
-import { useLocalStorage } from "./hooks/useLocalStorage"
+import PrivateRoute from './components/common/PrivateRoute/PrivateRoute'
+import PublicGuard from './components/common/PrivateRoute/PublicGuard'
 
 import * as projectService from './services/projectService'
-import { AuthContext } from './contexts/AuthContext'
+import { AuthProvider } from './contexts/AuthContext'
 import { ProjectContext } from './contexts/ProjectContext'
 
 import Header from './components/common/Header/Header'
@@ -24,20 +25,9 @@ import ProjectDetails from './components/Projectss/ProjectDetails/ProjectDetails
 
 function App() {
     const [projects, setProjects] = useState([])
-    const [auth, setAuth] = useLocalStorage('auth', {})
+
     const navigate = useNavigate()
 
-
-
-
-
-    const userLoginHandler = (authData) => {
-        setAuth(authData)
-    }
-
-    const userLogoutHandler = () => {
-        setAuth({});
-    }
 
     const addProject = (projectData) => {
         setProjects(state => [
@@ -52,8 +42,6 @@ function App() {
     }
 
 
-
-
     useEffect(() => {
         projectService.getAll()
             .then(result => {
@@ -63,32 +51,49 @@ function App() {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ user: auth, userLoginHandler, userLogoutHandler }}>
+        <AuthProvider>
             <div>
                 <Header />
-                <ProjectContext.Provider value={{projects, addProject, editProject}}>
-                <main className="main">
+                <ProjectContext.Provider value={{ projects, addProject, editProject }}>
+                    <main className="main">
                         <Routes>
-                            <Route path="/" element={<Home projects={projects} />} />
-                            <Route path="/login" element={<Login />} />
-                            <Route path="/register" element={
-                                <Suspense fallback={<span>Loading....</span>}>
-                                    <Register />
-                                </Suspense>
-                            } />
+
+                            <Route element={<PublicGuard />}>
+                                <Route path="/" element={<Home projects={projects} />} />
+                                <Route path="/login" element={<Login />} />
+                                <Route path="/register" element={
+                                    <Suspense fallback={<span>Loading....</span>}>
+                                        <Register />
+                                    </Suspense>
+                                } />
+                            </Route>
                             <Route path='/logout' element={<Logout />} />
                             <Route path="/dashboard" element={<Dashboard />} />
+
                             <Route path="/projects" element={<CatalogList projects={projects} />} />
-                            <Route path="/create-project" element={<CreateProject createProjectHandler={addProject} />} />
-                            <Route path="/projects/:projectId" element={<ProjectDetails projects={projects}/>} />
-                            <Route path="/projects/:projectId/edit-project" element={<EditProject />} />
+
+                            <Route path="/create-project" element={
+                                <PrivateRoute>
+                                    <CreateProject createProjectHandler={addProject}
+                                    />
+                                </PrivateRoute>}
+                            />
+                            <Route path="/projects/:projectId" element={
+                                <PrivateRoute>
+                                    <ProjectDetails projects={projects} />
+                                </PrivateRoute>} />
+                            <Route path="/projects/:projectId/edit-project" element={
+                                <PrivateRoute>
+                                    <EditProject />
+                                </PrivateRoute>}
+                            />
                         </Routes>
 
                     </main>
                 </ProjectContext.Provider>
                 <Footer />
             </div>
-        </AuthContext.Provider>
+        </AuthProvider>
     );
 }
 

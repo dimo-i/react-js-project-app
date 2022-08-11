@@ -10,7 +10,7 @@ const Dashboard = () => {
             <div className="container mb-5">
                 <div className="row mb-5">
                     <p>
-                        <span>You must be registered, in order to see the projects. Click
+                        <span>You must be registered, in order to see the details of the projects. Click
                             <Link to="/register"> here</Link> to register</span>
                     </p>
                 </div>
