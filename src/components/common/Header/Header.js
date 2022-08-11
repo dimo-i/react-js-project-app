@@ -44,7 +44,7 @@ const Header = () => {
                                     <div className="dropdown-menu dropdown-menu-end">
                                         <Link className="dropdown-item" to="">My Projects</Link>
                                         <div className="dropdown-divider"></div>
-                                        <Link className="dropdown-item" to="">Profile Details</Link>
+                                        <Link className="dropdown-item" to="/users/me">Profile Details</Link>
                                         <div className="dropdown-divider"></div>
                                         <Link className="dropdown-item" to="/logout">Logout</Link>
                                     </div>

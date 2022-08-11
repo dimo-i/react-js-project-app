@@ -42,19 +42,24 @@ const Register = () => {
         const password = formData.get('password')
         const confirmPassword = formData.get('confirmPassword')
 
+        const firstName = formData.get('firstName')
+        const lastName = formData.get('lastName')
+        const imageUrl = formData.get('imageUrl')
+      
+
 
         if (password !== confirmPassword) {
             console.log("Passwords must match")
             return
         }
 
-        if (values.firstName == '' || values.lastName == '' || values.imageUrl == '' || values.email == '' || values.password == '') {
+        if (firstName == '' || lastName == '' || imageUrl == '' || email == '' || password == '') {
             window.confirm("Please fill all fields")
             return
         }
 
 
-        authService.register(email, password)
+        authService.register(email, password, firstName, lastName, imageUrl)
             .then(authData => {
                 userLoginHandler(authData);
                 navigate('/')

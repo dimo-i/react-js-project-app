@@ -22,6 +22,7 @@ import CatalogList from './components/common/Catalog/CatalogList'
 
 import './App.css';
 import ProjectDetails from './components/Projectss/ProjectDetails/ProjectDetails'
+import UserDetails from './components/Users/UserDetails/UserDetails'
 
 function App() {
     const [projects, setProjects] = useState([])
@@ -81,7 +82,15 @@ function App() {
                             <Route path="/projects/:projectId" element={
                                 <PrivateRoute>
                                     <ProjectDetails projects={projects} />
-                                </PrivateRoute>} />
+                                </PrivateRoute>}
+                            />
+
+                            <Route path="/users/me" element={
+                                <PrivateRoute>
+                                    <UserDetails />
+                                </PrivateRoute>}
+                            />
+
                             <Route path="/projects/:projectId/edit-project" element={
                                 <PrivateRoute>
                                     <EditProject />
