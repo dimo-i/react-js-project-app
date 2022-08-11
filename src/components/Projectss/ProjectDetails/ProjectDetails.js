@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, Navigate } from "react-router-dom"
 import { useContext } from 'react'
 import { AuthContext } from "../../../contexts/AuthContext"
-
+import { useNavigate } from "react-router-dom"
+import { ProjectContext } from "../../../contexts/ProjectContext"
 
 
 import * as projectService from "../../../services/projectService"
@@ -10,7 +11,9 @@ import * as projectService from "../../../services/projectService"
 const ProjectDetails = () => {
     const { user } = useContext(AuthContext)
     const { projectId } = useParams();
+    const { deleteProject } = useContext(ProjectContext);
     const [currentProject, setCurrentProject] = useState({})
+    const navigate = useNavigate();
 
     useEffect(() => {
         projectService.getOne(projectId)
@@ -22,6 +25,19 @@ const ProjectDetails = () => {
     }, []);
 
 
+    const deleteProjectHandler = () => {
+        const confirmDelete = window.confirm("You are about to delete your project. Are you sure?")
+
+        if (confirmDelete) {
+            projectService.remove(projectId)
+            .then(() => {
+                deleteProject(projectId)
+                navigate('/')
+            })
+        }
+
+    }
+
 
     return (
         <div className="position-absolute top-50 start-50 translate-middle">
@@ -32,8 +48,8 @@ const ProjectDetails = () => {
                     </div>
                     <div className="card-body">
 
-                        <h2 className="card-title">  {currentProject.name}</h2>
-                        <h3 className="card-text"> {currentProject.category}</h3>
+                        <h2 className="card-title">Project Name: {currentProject.name}</h2>
+                        <h3 className="card-text">Project Category: {currentProject.category}</h3>
                     </div>
                     <h2 className="card-text">
                         {currentProject.description}
@@ -46,11 +62,12 @@ const ProjectDetails = () => {
                             <Link to={`/projects/${projectId}/edit-project`} className="btn btn-primary">
                                 Edit
                             </Link>
-                            <Link to={`/projects/${projectId}/delete-project`} className="btn btn-danger">
+                            <button onClick={deleteProjectHandler} className="btn btn-danger">
                                 Delete
-                            </Link>
+                            </button>
                         </div>
-                        : <></>
+                        : <>
+                        </>
                     }
 
 

@@ -42,6 +42,10 @@ function App() {
         setProjects(state => state.map(x => x._id === projectId ? projectData : x))
     }
 
+    const deleteProject = (projectId) => {
+        setProjects(state => state.filter(x => x._id !== projectId))
+    }
+
 
     useEffect(() => {
         projectService.getAll()
@@ -55,7 +59,7 @@ function App() {
         <AuthProvider>
             <div>
                 <Header />
-                <ProjectContext.Provider value={{ projects, addProject, editProject }}>
+                <ProjectContext.Provider value={{ projects, addProject, editProject, deleteProject }}>
                     <main className="main">
                         <Routes>
 

@@ -22,10 +22,6 @@ const Dashboard = () => {
 
 
             <div className="row mb-5">
-                <Link className="btn btn-primary btn-lg" to="#" role="button">Show Categories</Link>
-            </div>
-
-            <div className="row mb-5">
                 <Link className="btn btn-primary btn-lg" to="/projects" role="button">Show All Projects</Link>
             </div>
 
