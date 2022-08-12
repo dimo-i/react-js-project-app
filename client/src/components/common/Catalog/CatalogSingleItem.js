@@ -9,8 +9,8 @@ const CatalogSingleItem = ({ project }) => {
 
     
     return (
-
-                <div className="card " >
+        <>
+                <div className="card" >
                     <img src={project.imageUrl} className="card-img-top" />
                     <div className="card-body">
                         <h5 className="card-title">Project name: {project.name}</h5>
@@ -21,6 +21,7 @@ const CatalogSingleItem = ({ project }) => {
                     }
                     </div>
                 </div>
+                </>
     );
 }
 
