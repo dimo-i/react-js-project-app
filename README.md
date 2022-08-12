@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+===========================
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Progress App. 
 
-## Available Scripts
+===========================
 
-In the project directory, you can run:
+The project idea is a social media-like application where you can share your progress with your project, online. There is no limits what a project can be. It can be a art related, music related, car or home repairs and etc. 
 
-### `npm start`
+There is a login/ register page. Home page and dashboard page. The home page gives the option to either login or register or enter the site without registration. Guest users wont be able to see the details page of the projects found on the dashboard. 
+Logged/Registered users will see the navigation bar with a drop down menu with profile page and logout buttons. Clicking on "Home" you will be redirected to "Dashboard"page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Logged/Registered users will be able to create their own projects and have access to the details page of every projects. If the logged user is the owner the project, the buttons "Edit/Delete" will be visible.  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The applications connects to the "SoftUni Practice Server", which was slightly edited. The collection and the users were slightly modified to meet the needs of the application.  
 
-### `npm test`
+client folder/main folder can be started with "npm start" where the server is with "node server". 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+==================
+Credentials for the pre-created users: 
 
-### `npm run build`
+peter@abv.bg
+123456
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+john@abv.bg
+123456
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+==================
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The collection is pre-populated with several example projects where the owners are the given users. 
 
-### `npm run eject`
+When new users are registered and new projects are created, the new projects will be added to the collection and the the details of the user can be seen on the "Profile details page"(showing only current logged user). However, when the server is restarted/turned off, all the newly created data will be lost as its not connected to a database. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+==================
