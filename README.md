@@ -11,7 +11,8 @@ Logged/Registered users will see the navigation bar with a drop down menu with p
 
 Logged/Registered users will be able to create their own projects and have access to the details page of every projects. If the logged user is the owner the project, the buttons "Edit/Delete" will be visible.  
 
-The applications connects to the "SoftUni Practice Server", which was slightly edited. The collection and the users were slightly modified to meet the needs of the application.  
+The applications connects to the "SoftUni Practice Server", which was slightly edited. The collection and the users were slightly modified to meet the needs of the application.
+  
 
 client folder/main folder can be started with "npm start" where the server is with "node server". 
 
