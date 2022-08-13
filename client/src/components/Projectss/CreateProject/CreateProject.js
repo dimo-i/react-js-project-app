@@ -12,7 +12,7 @@ const CreateProject = () => {
     const [errors, setErrors] = useState({})
 
     const [values, setValues] = useState({
-        projectName: '',
+        name: '',
         category: '',
         imageUrl: '',
         description: '',
@@ -27,7 +27,7 @@ const CreateProject = () => {
         const projectData = Object.fromEntries(new FormData(e.target));
 
 
-        if (values.projectName == '' || values.category == '' || values.imageUrl == '' || values.description == '') {
+        if (values.name == '' || values.imageUrl == '' || values.description == '') {
             window.confirm("Please fill all fields")
             return
         }
@@ -78,7 +78,7 @@ const CreateProject = () => {
                 <form id="create" className="form-floating" onSubmit={onSubmit}>
 
                     <div className="form-floating mb-3">
-                        <input id="projectName" name="projectName" type="text" className="form-control" placeholder="Project Name" onChange={changeFieldHandler} onBlur={(e) => minLength(e, 3)} />
+                        <input id="name" name="name" type="text" className="form-control" placeholder="Project Name" onChange={changeFieldHandler} onBlur={(e) => minLength(e, 3)} />
                         <label htmlFor="floatingInput">Project Name</label>
                     </div>
                     {errors.projectName &&

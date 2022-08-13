@@ -13,7 +13,7 @@ const UserDetails = () => {
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={user.imageUrl}
-                            className="img-fluid" alt="description" style={{ maxWidth: "540px" }} />
+                            className="img-fluid" alt="description" style={{ maxWidth: "450px" }} />
                     </div>
 
                     <div className="col-md-8">
