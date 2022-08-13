@@ -43,7 +43,7 @@ const ProjectDetails = () => {
         <div className="card mb-3 clear-fix" >
             <div className="row g-0 ">
                 <div className="col-md-4 ">
-                    <img className="img-fluid" src={currentProject.imageUrl} style={{ maxWidth: "540px" }} />
+                    <img className="img-fluid" src={currentProject.imageUrl} style={{ maxWidth: "450px" }} />
                 </div>
                 
                     <div className="col-md-8 ">
@@ -70,7 +70,11 @@ const ProjectDetails = () => {
                                 : <>
                                 </>
                             }
-                        
+                            <div className="d-flex justify-content-end">
+                                <Link to={"/projects"} className="btn btn-primary ">
+                                    Go Back
+                                    </Link>
+                                </div>
                     </div>
                 </div>
             </div>

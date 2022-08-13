@@ -31,7 +31,7 @@ const Header = () => {
                             <Link className="nav-link" to="/projects">All Projects</Link>
                         </li>
 
-                        {user.email
+                        {user.accessToken
                             ? <>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/create-project">New Project</Link>
@@ -39,7 +39,7 @@ const Header = () => {
                                 <li className="nav-item dropdown">
                                     <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <strong>{user.email && <span>{user.email}</span>}</strong>
+                                        <strong>{user.firstName && <span>{user.firstName}</span>}</strong>
                                     </Link>
                                     <div className="dropdown-menu dropdown-menu-end">
                                         

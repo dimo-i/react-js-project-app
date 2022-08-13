@@ -105,7 +105,7 @@ function App() {
 
                     </main>
                 </ProjectContext.Provider>
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </AuthProvider>
     );

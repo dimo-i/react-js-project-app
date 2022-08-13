@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 
 
 import { useParams, useNavigate } from "react-router-dom"
-
+import { Link } from "react-router-dom"
 import * as projectService from '../../../services/projectService'
 import { ProjectContext } from "../../../contexts/ProjectContext"
 
@@ -33,9 +33,10 @@ const EditProject = () => {
     }
 
     return (
-        <div className="row">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-6">
+        <div className="position-absolute top-50 start-50 translate-middle">
+            <div className="row">
+                <div className="col-lg-3"></div>
+                <div className="col-lg-6"></div>
                 <form id="edit" onSubmit={onSubmit}>
                     <div className="form-floating mb-3">
                         <input id="name" name="name" type="text" className="form-control" placeholder="Project Name" defaultValue={currentProject.name} />
@@ -64,11 +65,20 @@ const EditProject = () => {
 
 
                     <input className="btn btn-primary mt-2" type="submit" value="Edit Project" />
+
                 </form>
+                <div className="d-flex justify-content-center">
+
+                    <Link to={"/projects"} className="btn btn-primary ">
+                        Go Back
+                    </Link>
+                </div>
             </div>
             <div className="col-lg-3"></div>
-        </div>
 
+        </div>
+    
+        
     )
 }
 
