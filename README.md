@@ -1,6 +1,6 @@
 ===========================
 
-Progress App. 
+Progress Center project App. 
 
 ===========================
 
