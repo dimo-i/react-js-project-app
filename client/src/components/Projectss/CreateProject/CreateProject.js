@@ -81,7 +81,7 @@ const CreateProject = () => {
                         <input id="name" name="name" type="text" className="form-control" placeholder="Project Name" onChange={changeFieldHandler} onBlur={(e) => minLength(e, 3)} />
                         <label htmlFor="floatingInput">Project Name</label>
                     </div>
-                    {errors.projectName &&
+                    {errors.name &&
                         <p className="form-error">
                             Project name should be at least 3 characters long!
                         </p>
