@@ -1,6 +1,6 @@
 ===========================
 
-Progress Center project App. 
+Progress Center project App with React. 
 
 ===========================
 
